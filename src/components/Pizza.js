@@ -1,13 +1,22 @@
 import React from "react";
 
-function Pizza() {
+function Pizza({pizza, onEditClick}) {
+  // Destructured pizza object
+  const {topping, size, vegetarian} = pizza;
+
+  // Event Listener: Edit Pizza click
+  function handleEditClick() {
+    // console.log('handleEditClick');
+    onEditClick(pizza);
+  }
+
   return (
     <tr>
-      <td>{"Replace Me With Pizza Topping"}</td>
-      <td>{"Replace Me With Pizza Size"}</td>
-      <td>{"Replace Me With Vegatarian"}</td>
+      <td>{topping}</td>
+      <td>{size}</td>
+      <td>{(vegetarian ? 'Yes' : 'No')}</td>
       <td>
-        <button type="button" className="btn btn-primary">
+        <button type="button" className="btn btn-primary" onClick={handleEditClick}>
           Edit Pizza
         </button>
       </td>
